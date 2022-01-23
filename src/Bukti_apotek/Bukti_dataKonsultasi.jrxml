@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d1d6eb9c-d055-408f-a9e8-aad0533405bb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="nomor_konsul" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tb_konsul.`nomor_konsul` AS tb_konsul_nomor_konsul,
+     tb_konsul.`username` AS tb_konsul_username,
+     tb_konsul.`id_dokter` AS tb_konsul_id_dokter,
+     tb_konsul.`jadwal_praktek` AS tb_konsul_jadwal_praktek,
+     tb_konsul.`id_pasien` AS tb_konsul_id_pasien,
+     tb_konsul.`keluhan` AS tb_konsul_keluhan,
+     tb_konsul.`resep_obat` AS tb_konsul_resep_obat,
+     tb_konsul.`biaya_konsul` AS tb_konsul_biaya_konsul
+FROM
+     `tb_konsul` tb_konsul
+WHERE tb_konsul.`nomor_konsul` = $P{nomor_konsul}]]>
+	</queryString>
+	<field name="tb_konsul_nomor_konsul" class="java.lang.String"/>
+	<field name="tb_konsul_username" class="java.lang.String"/>
+	<field name="tb_konsul_id_dokter" class="java.lang.String"/>
+	<field name="tb_konsul_jadwal_praktek" class="java.lang.String"/>
+	<field name="tb_konsul_id_pasien" class="java.lang.String"/>
+	<field name="tb_konsul_keluhan" class="java.lang.String"/>
+	<field name="tb_konsul_resep_obat" class="java.lang.String"/>
+	<field name="tb_konsul_biaya_konsul" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="d12978ac-9efc-4552-ba0a-5c5387341c8d" style="Title" x="161" y="45" width="477" height="35" forecolor="#736343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[BUKTI KONSULTASI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1a3c5ebe-08c2-4815-ba3c-e2aaafd196ae" style="SubTitle" x="161" y="114" width="477" height="22"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Jl. Komodor Udara No. 32 Halim Perdanakusuma Telp: (021) 9401 4542]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d12978ac-9efc-4552-ba0a-5c5387341c8d" style="Title" x="161" y="10" width="477" height="35" forecolor="#736343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="30" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[SISTEM INFORMASI APOTEKER]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="faec17f3-ddce-4ea0-af07-42710edba284" x="10" y="33" width="136" height="81"/>
+				<imageExpression><![CDATA["C:\\Users\\llawl\\NetBeans\\SI_apoteker&Konsul\\src\\Image\\Logo Apoteker.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="1a3c5ebe-08c2-4815-ba3c-e2aaafd196ae" style="SubTitle" x="228" y="82" width="351" height="22"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[APOTEK YEKA FARMA21]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="c4b3f468-ef71-4878-8c5d-7433e1244f88" positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="4bff3b67-907b-4fd1-bf34-8a2eb0b3321b" style="Column header" x="0" y="0" width="85" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[No. Konsultasi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="21cc25c6-25da-4543-a659-bfa55d7bbb04" style="Column header" x="86" y="0" width="60" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[ID Admin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="438a287a-67e6-44d0-9520-f07534ce42ae" style="Column header" x="146" y="0" width="60" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[ID Dokter]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1608513a-7255-44c8-a728-c7117a36a498" style="Column header" x="206" y="0" width="127" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Jadwal Praktek]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dc8fd497-ca54-4ddf-8857-067689ed6d42" style="Column header" x="333" y="0" width="63" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[ID Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c4c5ee0b-6bef-4670-9b35-f44401bb6b1f" style="Column header" x="396" y="0" width="151" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Keluhan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f43059bb-84ec-4921-a7ba-d8507d937345" style="Column header" x="700" y="0" width="100" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Biaya Konsul]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="296d69a4-6c99-426d-bb6b-7cbf198f2925" style="Column header" x="547" y="0" width="153" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Resep Obat]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement uuid="b51b0eb2-d2f8-4b50-a750-090088498a58" style="Row" mode="Opaque" x="0" y="0" width="802" height="15"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="24f68f1d-8d28-4cef-9480-71ed329b6fbd" style="Detail" x="0" y="0" width="85" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tb_konsul_nomor_konsul}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="1ccbafb6-b739-48cf-8330-3fef4bb710dc" style="Detail" x="86" y="0" width="60" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tb_konsul_username}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="8b071a50-3761-430a-a391-1eb918e10182" style="Detail" x="146" y="0" width="60" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tb_konsul_id_dokter}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="8805a208-08b7-489b-bc1a-4c4786832ac7" style="Detail" x="206" y="0" width="127" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tb_konsul_jadwal_praktek}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="d44ac20c-8439-4ae7-ba2d-8d3482117d73" style="Detail" x="333" y="0" width="63" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tb_konsul_id_pasien}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="1ab5ab11-acc6-4685-b8c7-24ba75da6a54" style="Detail" x="396" y="0" width="151" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tb_konsul_keluhan}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="8ba11b35-eda5-4328-bbbd-b9ad04831279" style="Detail" x="700" y="0" width="100" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tb_konsul_biaya_konsul}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="9b5a77b1-8ce8-4aa6-9998-66c18c1cd1d4" style="Detail" x="547" y="0" width="153" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tb_konsul_resep_obat}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="130" splitType="Stretch">
+			<line>
+				<reportElement uuid="c00a27d1-cbdb-493d-9296-030a97a0dcaf" positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="26605855-3632-49cc-b257-ae6feec66418" x="649" y="17" width="44" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Jakarta,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9d2bbcb5-1272-44c7-b92b-552e5e933410" x="649" y="100" width="153" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Kriana Efendi, M.Farm., Apt.]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="327a68ac-3c21-48cf-99a3-81f844a3f330" x="693" y="17" width="109" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="9d2bbcb5-1272-44c7-b92b-552e5e933410" x="649" y="37" width="153" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Pemilik]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="190d429a-d615-4f7e-a7fe-b0872db21390" mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="f9c8c710-5848-40d7-b08c-6b6373ed5763" style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="6a6fb413-98ab-4324-91dd-a9800feac0d8" style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
